@@ -1,4 +1,4 @@
-## похожие тайтлы
+# похожие тайтлы
 
 `GET https://api.cdnrulib.link/api/manga/{slug_url}/similar`
 

@@ -1,0 +1,34 @@
+node_modules/
+
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+.env
+.env.*
+!.env.example
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# coverage
+coverage/
+
+# Python (если используется)
+__pycache__/
+*.py[cod]
+.venv/
+venv/

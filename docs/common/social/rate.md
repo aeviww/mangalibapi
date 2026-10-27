@@ -1,4 +1,4 @@
-## оценка тайтла
+# оценка тайтла
 
 `POST https://api.cdnrulib.link/api/manga/rate`
 

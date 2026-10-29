@@ -1,7 +1,7 @@
 {
   "name": "mangalibapi",
   "version": "0.1.0",
-  "description": "typed client and documentation for the unofficial mangalib and animelib api",
+  "description": "documentation for the unofficial mangalib and animelib api",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -25,13 +25,9 @@
     "vitepress-sidebar": "^1.41.0"
   },
   "scripts": {
-    "build": "bun run build:js && bun run build:types",
-    "build:js": "bun build src/index.ts --outdir dist --target browser --format esm",
-    "build:types": "tsc -p tsconfig.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "test": "bun test"
+    "docs:preview": "vitepress preview docs"
   }
 }

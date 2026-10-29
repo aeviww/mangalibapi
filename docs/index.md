@@ -20,7 +20,6 @@
 - [информация о тайтле](common/chapters/info.md);
 - [список глав](common/chapters/list-chapters.md);
 - [получение главы](common/chapters/get-chapters.md);
-- [календарь animelib](library/animelib.md#календарь).
 
 ## важное замечание
 

@@ -1,4 +1,4 @@
-## получение главы
+# получение главы
 
 `GET https://api.imglib.info/api/manga/{slug_url}/chapter`
 
@@ -81,4 +81,3 @@ Accept: application/json
   }
 }
 ```
-

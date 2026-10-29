@@ -2,19 +2,29 @@
 
 `GET https://api.cdnrulib.link/api/manga/{slug_url}/chapters`
 
-возвращает список глав манги, включая информацию о переводах, командах и пользователях. не требует авторизации
+возвращает все главы тайтла с переводами, командами и пользователями, загрузившими главу. авторизация не требуется.
 
 ## заголовки
 
 | заголовок | значение |
 |---|---|
+| `Site-id` | `1` для mangalib ([константы](../../constants.md)) |
+| `Referer` | `https://mangalib.org/` |
 | `Accept` | `application/json` |
+
+## параметры
+
+| параметр | тип | описание |
+|---|---|---|
+| `slug_url` | `string` | идентификатор тайтла |
 
 ## пример запроса
 
 ```http
-GET /api/manga/86752--sairentouitchi-chin-mo-ku-no-majo-no-kakushi-goto/chapters HTTP/2
+GET /api/manga/45638--hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-potion/chapters HTTP/2
 Host: api.cdnrulib.link
+Site-id: 1
+Referer: https://mangalib.org/
 Accept: application/json
 ```
 
@@ -24,38 +34,38 @@ Accept: application/json
 {
   "data": [
     {
-      "id": 3697751,
+      "id": 964051,
       "index": 1,
       "item_number": 1,
       "volume": "1",
-      "number": "0",
+      "number": "1",
       "number_secondary": "1",
-      "name": "Пролог",
-      "branches_count": 2,
+      "name": "",
+      "branches_count": 1,
       "branches": [
         {
-          "id": 3697751,
-          "branch_id": 23079,
-          "created_at": "2025-07-21T21:11:27.000000Z",
+          "id": 964051,
+          "branch_id": null,
+          "created_at": "2020-10-12T14:52:41.000000Z",
           "teams": [
             {
-              "id": 28698,
-              "slug": "pen",
-              "slug_url": "28698--pen",
+              "id": 0,
+              "slug": "unknown",
+              "slug_url": "0--unknown",
               "model": "team",
-              "name": "Ко₽яжн@я_лярв@",
+              "name": "Неизвестный",
               "cover": {
-                "filename": "oVePUlNK7nDB",
-                "thumbnail": "https://cover.cdnrulib.link/uploads/team/pen/cover/oVePUlNK7nDB_thumb.jpg",
-                "default": "https://cover.cdnrulib.link/uploads/team/pen/cover/oVePUlNK7nDB_250x350.jpg",
-                "md": "https://cover.cdnrulib.link/uploads/team/pen/cover/oVePUlNK7nDB_250x350.jpg"
+                "filename": null,
+                "thumbnail": "https://cover.cdnrulib.link/static/images/placeholders/user_avatar.png",
+                "default": "https://cover.cdnrulib.link/static/images/placeholders/user_avatar.png",
+                "md": "https://cover.cdnrulib.link/static/images/placeholders/user_avatar.png"
               }
             }
           ],
           "expired_type": 0,
           "user": {
-            "username": "Tori_bragunia",
-            "id": 403536
+            "username": "example_user",
+            "id": 1000000
           }
         }
       ],

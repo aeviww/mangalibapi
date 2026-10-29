@@ -10,6 +10,8 @@
 
 | заголовок | значение |
 |---|---|
+| `Site-id` | `1` для mangalib ([константы](../../constants.md)) |
+| `Referer` | `https://mangalib.org/` |
 | `Accept` | `application/json` |
 
 ## пример запроса
@@ -17,6 +19,8 @@
 ```http
 GET /api/manga/178245--rikai-no-aru-karen-chan/similar HTTP/2
 Host: api.cdnrulib.link
+Site-id: 1
+Referer: https://mangalib.org/
 Accept: application/json
 ```
 
@@ -73,4 +77,3 @@ Accept: application/json
   ]
 }
 ```
-

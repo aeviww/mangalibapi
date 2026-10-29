@@ -4,20 +4,33 @@
 
 для ranobelib получение главы описано отдельно: [получение ранобэ](../../services/ranobelib/ranobe/get-ranobe.md).
 
-возвращает информацию о главе манги, включая список страниц, данные о просмотрах, лайках и оценке качества перевода.
+возвращает информацию о главе манги, список страниц, данные о просмотрах, лайках и оценке качества перевода. авторизация не требуется.
+
+## заголовки
+
+| заголовок | значение |
+|---|---|
+| `Site-id` | `1` для mangalib ([константы](../../constants.md)) |
+| `Referer` | `https://mangalib.org/` |
+| `Accept` | `application/json` |
 
 ## параметры
 
-| параметр | тип | описание |
-|---|---|---|
-| `volume` | `integer` | Номер тома |
-| `number` | `integer` | Номер главы |
+| параметр | тип | обязателен | описание |
+|---|---|---|---|
+| `volume` | `integer` | да | номер тома |
+| `number` | `integer` | да | номер главы |
+| `branch_id` | `integer` | нет | id ветки перевода из [списка глав](list-chapters.md) |
+
+если `branch_id` не указан, сервер выбирает ветку по умолчанию. `number_secondary` в проверенных запросах игнорировался: ответ не менялся.
 
 ## пример запроса
 
 ```http
 GET /api/manga/45638--hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-potion/chapter?volume=1&number=1 HTTP/2
 Host: api.cdnrulib.link
+Site-id: 1
+Referer: https://mangalib.org/
 Accept: application/json
 ```
 
@@ -41,7 +54,7 @@ Accept: application/json
       "id": 1,
       "label": "Принято модерацией"
     },
-    "likes_count": 2831,
+    "likes_count": 2851,
     "is_liked": false,
     "is_viewed": false,
     "is_viewed_last_at": null,
@@ -104,18 +117,14 @@ Accept: application/json
 }
 ```
 
+пример сокращён
+
 ## получение изображений через CDN
 
-поле `pages[].url` содержит относительный путь к изображению. чтобы получить прямую ссылку на страницу, необходимо добавить перед ним домен CDN.
-
-например, если API вернул:
-
-```text
-//manga/hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-potion/chapters/964051/1_rAEo.png
-```
-
-ссылка на изображение через CDN:
+поле `pages[].url` содержит относительный путь. чтобы получить прямую ссылку, добавьте домен cdn из `GET /api/constants?fields[]=imageServers`:
 
 ```text
 https://img3.cdnrulib.link//manga/hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-potion/chapters/964051/1_rAEo.png
 ```
+
+актуальный список cdn в [константах](../../constants.md#серверы-изображений).
